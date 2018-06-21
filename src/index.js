@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { Component} from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
+import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 
-// Create a new component. This component should produce
-// HTML
-const App = () => {
-  return <div>'dbay: Shimo-san is the best!'</div>;
+const API_KEY = 'AIzaSyBIlQQJsnVP-wvBymyubY3eZpg85q6jaMw';
+
+
+
+class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = { videos: []};
+
+    YTSearch({key: API_KEY, term: 'potatoes'}, (videos) => {
+      this.setState({ videos });
+    });
+  }
+  render() {
+  return (
+    <div>
+      <SearchBar />
+      <VideoList videos={this.state.videos} />
+    </div>
+    );
+  }
 }
 
 
-// Take this component genrerated and put in in the page
-//Show it on the page
-ReactDOM.render(<App />, document.querySelector('.container') );
+ReactDOM.render(<App />, document.querySelector('.container'));
