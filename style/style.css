@@ -1,4 +1,9 @@
-.search-bar input{
+.search-bar{
+  margin: 20px;
+  text-align: center
+}
+
+.search-bar input {
   width: 75%;
 }
 
@@ -7,8 +12,8 @@
 }
 
 .video-detail .details {
-  margin-top: 10px;
-  padding: 10px;
+  margin-top 10px;
+  padding:10px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -19,6 +24,4 @@
 
 .list-group-item:hover{
   background-color: #eee;
-
-
 }
